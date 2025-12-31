@@ -48,6 +48,9 @@ app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 
+app.UseMiddleware<SecureDocument.Api.Middleware.CorrelationIdMiddleware>();
+app.UseMiddleware<SecureDocument.Api.Middleware.GlobalExceptionMiddleware>();
+
 app.MapControllers();
 
 app.Run();
